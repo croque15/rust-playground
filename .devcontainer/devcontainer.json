@@ -1,4 +1,59 @@
 {
     "name": "devcontainer-test",
-    "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm"
+    "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/starship:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.customGlyphs": true,
+                "terminal.integrated.fontFamily": "'0xProto Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+                "editor.formatOnSave": true,
+                "go.buildTags": "",
+                "go.toolsEnvVars": {
+                    "CGO_ENABLED": "0"
+                },
+                "go.useLanguageServer": true,
+                "go.testEnvVars": {
+                    "CGO_ENABLED": "1"
+                },
+                "go.testFlags": [
+                    "-v",
+                    "-race"
+                ],
+                "go.testTimeout": "10s",
+                "go.coverOnSingleTest": true,
+                "go.coverOnSingleTestFile": true,
+                "go.coverOnTestPackage": true,
+                "go.lintTool": "golangci-lint",
+                "go.lintOnSave": "package",
+                "[go]": {
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "always"
+                    }
+                },
+                "markiscodecoverage.coverageThreshold": 95,
+                "markiscodecoverage.enableOnStartup": true,
+                "markiscodecoverage.searchCriteria": "*.lcov*"
+            },
+            "extensions": [
+                "github.vscode-pull-request-github",
+                "github.vscode-github-actions",
+                "oderwat.indent-rainbow",
+                "yzhang.markdown-all-in-one",
+                "quicktype.quicktype",
+                "jebbs.plantuml",
+                "foxundermoon.shell-format",
+                "ahebrank.yaml2json",
+                "markis.code-coverage",
+                "amazonwebservices.amazon-q-vscode",
+                "Gruntfuggly.todo-tree",
+                "JScearcy.rust-doc-viewer",
+                "dustypomerleau.rust-syntax",
+                "rust-lang.rust-analyzer"
+            ]
+        }
+    },
+    "postCreateCommand": "/usr/bin/bash ./.devcontainer/post-create.sh > ~/post-create.log"
 }
