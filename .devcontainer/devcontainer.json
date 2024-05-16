@@ -7,32 +7,7 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.customGlyphs": true,
-                "terminal.integrated.fontFamily": "'0xProto Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
                 "editor.formatOnSave": true,
-                "go.buildTags": "",
-                "go.toolsEnvVars": {
-                    "CGO_ENABLED": "0"
-                },
-                "go.useLanguageServer": true,
-                "go.testEnvVars": {
-                    "CGO_ENABLED": "1"
-                },
-                "go.testFlags": [
-                    "-v",
-                    "-race"
-                ],
-                "go.testTimeout": "10s",
-                "go.coverOnSingleTest": true,
-                "go.coverOnSingleTestFile": true,
-                "go.coverOnTestPackage": true,
-                "go.lintTool": "golangci-lint",
-                "go.lintOnSave": "package",
-                "[go]": {
-                    "editor.codeActionsOnSave": {
-                        "source.organizeImports": "always"
-                    }
-                },
                 "markiscodecoverage.coverageThreshold": 95,
                 "markiscodecoverage.enableOnStartup": true,
                 "markiscodecoverage.searchCriteria": "*.lcov*"
@@ -49,11 +24,11 @@
                 "markis.code-coverage",
                 "amazonwebservices.amazon-q-vscode",
                 "Gruntfuggly.todo-tree",
-                "JScearcy.rust-doc-viewer",
-                "dustypomerleau.rust-syntax",
-                "rust-lang.rust-analyzer"
+                "ms-toolsai.jupyter",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "ms-toolsai.vscode-jupyter-powertoys"
             ]
         }
     },
-    "postCreateCommand": "/usr/bin/bash ./.devcontainer/post-create.sh > ~/post-create.log"
+    "onCreateCommand": "cargo install --locked evcxr_jupyter && evcxr_jupyter --install && starship preset nerd-font-symbols -o ~/.config/starship.toml"
 }
