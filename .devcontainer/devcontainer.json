@@ -1,5 +1,5 @@
 {
-    "name": "dkfm-rust-playground",
+    "name": "rust-playground",
     "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
     "features": {
         "ghcr.io/devcontainers-contrib/features/starship:1": {}
@@ -18,12 +18,8 @@
                 "oderwat.indent-rainbow",
                 "yzhang.markdown-all-in-one",
                 "quicktype.quicktype",
-                "jebbs.plantuml",
-                "foxundermoon.shell-format",
                 "ahebrank.yaml2json",
-                "markis.code-coverage",
                 "amazonwebservices.amazon-q-vscode",
-                "Gruntfuggly.todo-tree",
                 "ms-toolsai.jupyter",
                 "ms-toolsai.vscode-jupyter-slideshow",
                 "ms-toolsai.vscode-jupyter-powertoys"
